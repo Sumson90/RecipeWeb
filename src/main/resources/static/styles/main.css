@@ -44,7 +44,7 @@ i powinna zajmować większość dostępnej przestrzeni
 /*Elementy menu domyślnie są ukryte*/
 .menu-item {
     width: 100%;
-    padding: 16px;
+    padding: 22px;
     border-bottom: 1px lightgreen solid;
     text-align: center;
     display: none;
@@ -95,4 +95,60 @@ i powinna zajmować większość dostępnej przestrzeni
         align-self: center;
         width: 960px;
     }
+    /*Jumbotron START*/
+    .jumbotron {
+        background-image: url("../img/jumbotron.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 2rem;
+        text-align: center;
+    }
+    .jumbotron-header {
+        font-size: 3rem;
+        margin: 1rem 0;
+    }
+    .jumbotron-description {
+        font-size: 1.2rem;
+    }
+    /*Jumbotron END*/
+
+    /*Listing START*/
+    /*Nagłówek*/
+    .list-heading,
+    .list-description {
+        text-align: center;
+        margin: 16px 0;
+    }
+    /*Usunięcie dekoracji elementów listy (kropki na początku)*/
+    .movie-list {
+        list-style-type: none;
+    }
+    /*Margines i ramka wokół pojedynczego filmu*/
+    .movie-list-item {
+        margin-bottom: 16px;
+        display: flex;
+        border: 1px #6d6d6d solid;
+    }
+    /*Plakat - usuniecie paddingu*/
+    .movie-list-item-poster {
+        display: block;
+        max-width: 200px;
+    }
+    /*Karta filmu*/
+    .movie-list-item-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px;
+    }
+    .movie-list-item-content > * {
+        margin: 8px 0;
+    }
+    .movie-list-item-title {
+        font-size: 1.6rem;
+    }
+    .movie-list-item-rating {
+        font-size: 1.6rem;
+    }
+    /*Listing END*/
 }
