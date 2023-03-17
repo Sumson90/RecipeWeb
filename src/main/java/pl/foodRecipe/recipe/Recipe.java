@@ -1,4 +1,4 @@
-package pl.foodRecipe.movie;
+package pl.foodRecipe.recipe;
 
 import lombok.*;
 import pl.foodRecipe.category.Category;
