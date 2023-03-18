@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model){
-        List<RecipeDto> promotedRecipes = recipeService.findAllPromotedMovies();
+        List<RecipeDto> promotedRecipes = recipeService.findAllPromotedRecipes();
         model.addAttribute("heading", "Promowane przepisy");
         model.addAttribute("description", "Przepisy polecane przez nasz zespół");
         model.addAttribute("recipes" ,promotedRecipes);

@@ -1,21 +1,6 @@
-INSERT INTO recipe (title, promoted, category_id) VALUES
-                                                      ('Kurczak curry', true, 1),
-                                                      ('Pizza margherita', false, 2),
-                                                      ('Spaghetti bolognese', true, 1),
-                                                      ('Sałatka grecka', false, 3),
-                                                      ('Sushi z łososiem', true, 4),
-                                                      ('Taco z mięsem mielonym', false, 5),
-                                                      ('Kebab z kurczakiem', true, 6),
-                                                      ('Ramen z wieprzowiną', false, 4),
-                                                      ('Kotlet schabowy', true, 1),
-                                                      ('Krewetki w sosie czosnkowym', false, 7),
-                                                      ('Tarta z warzywami', true, 3),
-                                                      ('Filet z łososia', false, 4),
-                                                      ('Kluski śląskie z mięsem', true, 1),
-                                                      ('Kurczak w miodzie i musztardzie', false, 8),
-                                                      ('Lasagne z mięsem', true, 2),
-                                                      ('Kotlet de volaille', false, 9),
-                                                      ('Zapiekanka ziemniaczana', true, 1),
-                                                      ('Krewetki curry', false, 7),
-                                                      ('Kanapki z łososiem', true, 4),
-                                                      ('Zapiekanka z kurczakiem', false, 1);
+INSERT INTO recipe (title, promoted, category_id, description, short_description, youtube_trailer_id) VALUES
+('Pyszne naleśniki', TRUE, 1, 'Dowiedz się, jak przygotować pyszne naleśniki w kilku prostych krokach.', 'Przepis na domowe naleśniki', 'abc123'),
+('Sałatka grecka', FALSE, 2, 'Krok po kroku przepis na tradycyjną sałatkę grecką z pomidorami, ogórkami i serem feta.', 'Przepis na sałatkę grecką', 'def456'),
+('Spaghetti carbonara', TRUE, 3, 'Przygotuj klasyczne spaghetti carbonara z boczkiem, jajkami i parmezanem.', 'Włoskie spaghetti carbonara', 'ghi789'),
+('Sernik królewski', FALSE, 4, 'Pyszny sernik królewski z kremem i owocami - idealny deser na każdą okazję.', 'Przepis na sernik królewski', 'jkl012'),
+('Domowe sushi', TRUE, 5, 'Naucz się robić domowe sushi z łososiem, awokado i ogórkiem.', 'Przepis na sushi', 'mno345');

@@ -17,7 +17,7 @@
             <!-- Pętla po wszystkich filmach z modelu -->
             <li class="recipe-list-item" th:each="recipe: ${recipes}">
                 <!-- Link do strony pojedynczego pzepisu typu /film/5 -->
-                <a href="#" th:href="@{|/film/${recipe.id}|}">
+                <a href="#" th:href="@{|/przepis/${recipe.id}|}">
                     <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
                     <img src="../static/img/poster-placeholder.png"
                          th:src="@{/img/poster-placeholder.png}"
@@ -28,12 +28,8 @@
                     <div class="recipe-list-item-content">
                         <h3 class="recipe-list-item-title">
                             <!-- Link do strony pojedynczego filmu typu /film/5 -->
-                            <a href="#" th:href="@{|/film/${recipe.id}|}" th:text="${recipe.title}">Tytuł filmu</a>
+                            <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Tytuł filmu</a>
                         </h3>
-                        <!-- Tytuł filmu -->
-                        <h4 th:text="${recipe.originalTitle}">Angielski tytuł filmu</h4>
-                        <!-- Rok premiery filmu -->
-                        <p th:text="${recipe.releaseYear}">1999</p>
                     </div>
                     <div class="recipe-list-item-rating">
                         <i class="fas fa-star"></i>

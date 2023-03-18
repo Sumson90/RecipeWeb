@@ -7,6 +7,9 @@ public class RecipeDtoMapper {
         return new RecipeDto(
                 recipe.getId(),
                 recipe.getTitle(),
+                recipe.getShortDescription(),
+                recipe.getDescription(),
+                recipe.getYoutubeTrailerId(),
                 recipe.getCategory().getName(),
                 recipe.isPromoted()
         );
