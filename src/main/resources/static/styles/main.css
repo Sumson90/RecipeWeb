@@ -120,35 +120,136 @@ i powinna zajmować większość dostępnej przestrzeni
         margin: 16px 0;
     }
     /*Usunięcie dekoracji elementów listy (kropki na początku)*/
-    .movie-list {
+    .recipe-list {
         list-style-type: none;
     }
     /*Margines i ramka wokół pojedynczego filmu*/
-    .movie-list-item {
+    .recipe-list-item {
         margin-bottom: 16px;
         display: flex;
         border: 1px #6d6d6d solid;
     }
     /*Plakat - usuniecie paddingu*/
-    .movie-list-item-poster {
+    .recipe-list-item-poster {
         display: block;
         max-width: 200px;
     }
     /*Karta filmu*/
-    .movie-list-item-card {
+    .recipe-list-item-card {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 16px;
     }
-    .movie-list-item-content > * {
+    .recipe-list-item-content > * {
         margin: 8px 0;
     }
-    .movie-list-item-title {
+    .recipe-list-item-title {
         font-size: 1.6rem;
     }
-    .movie-list-item-rating {
+    .recipe-list-item-rating {
         font-size: 1.6rem;
     }
     /*Listing END*/
+
+    /*Movie.html*/
+    /*Informacje o filmie w jednym rzędzie z odstępem od jumbotrona*/
+    .recipe-summary {
+        display: flex;
+        margin-top: 16px;
+    }
+    /*Mniejsza okładka na małych ekranach*/
+    .recipe-summary-cover {
+        object-fit: contain;
+        max-width: 200px;
+    }
+    /*Odstęp informacji o filmie od okładki*/
+    .recipe-summary-info {
+        margin-left: 16px;
+    }
+    /*Oryginalny tytuł w kolorze szarym i odstęp pod nim*/
+    .recipe-summary-original-title {
+        color: #9e9e9e;
+        margin-bottom: 16px;
+    }
+    /*Odstępy między poszczególnymi informacjami*/
+    .recipe-summary-item {
+        margin: 8px 0;
+    }
+    /*Większy tytuł filmu*/
+    .recipe-summary-title {
+        font-size: 2rem;
+    }
+    /*Wyśrodkowanie głosowania*/
+    .recipe-rating-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 200px;
+    }
+
+    /*Wyśrodkowanie tekstu Twoja ocena*/
+    .recipe-rating-form > p {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    /*Powiększenie i wyśrodkowanie średniej oceny*/
+    .recipe-rating-value {
+        font-size: 4rem;
+        text-align: center;
+    }
+    /*Styl dla przycisków z ocenami*/
+    .recipe-rating-button {
+        background-color: #ffc107;
+        border: 0;
+        padding: 4px;
+        font-size: 1.6rem;
+        border-radius: 4px;
+        opacity: 0.8;
+    }
+    /*Usunięcie przezroczystości po najechaniu na przycisk*/
+    .recipe-rating-button:hover {
+        opacity: 1;
+    }
+    /*Odstępy między elementami w ramce z głosowaniem*/
+    .recipe-rating-container > * {
+        margin: 8px 0;
+    }
+    /*Ramka dla boxu z głosowaniem*/
+    .recipe-section {
+        margin-top: 16px;
+        padding: 16px;
+        border: 1px #6d6d6d solid;
+    }
+    /*Movie.html END*/
+
+    /*Odstęp pod nagłówkami sekcji*/
+    .recipe-section-heading {
+        margin-bottom: 8px;
+    }
+    /*Wyśrodkowanie trailera*/
+    .recipe-trailer {
+        display: block;
+        margin: auto;
+    }
+    /*Responsive movie.html*/
+    @media only screen and (min-width: 992px) {
+        /*Dodajemy rozkład elastyczny, elementy będą wyświetlane w jednym wierszu*/
+        .recipe {
+            display: flex;
+            justify-content: space-between;
+        }
+        /*Przyciski powinny wyświetlać się obok siebie, bez zawijania wiersza*/
+        .recipe-rating-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        /*Większe odstępy między przyciskami*/
+        .recipe-rating-button {
+            font-size: 1.2rem;
+            margin: 0 4px;
+        }
+    }
 }

@@ -22,7 +22,7 @@
     <li class="menu-logo-container">
       <!-- Dynamicznie budowany adres do strony głównej -->
       <a href="#" th:href="@{/}">
-        <i class="fas fa-film logo"></i> Przepisy
+        <i class="fas fa-utensils logo"></i> Przepisy
       </a>
     </li>
     <li class="menu-toggle">
@@ -50,48 +50,48 @@
     <!-- Opis pobieramy z modelu -->
     <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kategorii, albo strony głównej</p>
     <!-- Zostawiamy tylko pierwszy element <li> -->
-    <ul class="movie-list" th:remove="all-but-first">
+    <ul class="recipe-list" th:remove="all-but-first">
       <!-- Pętla po wszystkich filmach z modelu -->
-      <li class="movie-list-item" th:each="recipe: ${recipes}">
+      <li class="recipe-list-item" th:each="recipe: ${recipes}">
         <!-- Link do strony pojedynczego filmu typu /film/5 -->
         <a href="#" th:href="@{|/przepis/${recipe.id}|}">
           <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
           <img src="../static/img/poster-placeholder.png"
                th:src="@{/img/poster-placeholder.png}"
                alt="tytuł filmu"
-               class="movie-list-item-poster">
+               class="recipe-list-item-poster">
         </a>
-        <div class="movie-list-item-card">
-          <div class="movie-list-item-content">
-            <h3 class="movie-list-item-title">
+        <div class="recipe-list-item-card">
+          <div class="recipe-list-item-content">
+            <h3 class="recipe-list-item-title">
               <!-- Link do strony pojedynczego filmu typu /film/5 -->
               <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Przepisy</a>
             </h3>
           </div>
-          <div class="movie-list-item-rating">
+          <div class="recipe-list-item-rating">
             <i class="fas fa-star"></i>
             <span>8.7</span>
           </div>
         </div>
       </li>
 
-      <li class="movie-list-item" th:each="recipe: ${recipes}">
+      <li class="recipe-list-item" th:each="recipe: ${recipes}">
         <!-- Link do strony pojedynczego filmu typu /film/5 -->
         <a href="#" th:href="@{|/przepis/${recipe.id}|}">
           <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
           <img src="../static/img/poster-placeholder.png"
                th:src="@{/img/poster-placeholder.png}"
                alt="tytuł filmu"
-               class="movie-list-item-poster">
+               class="recipe-list-item-poster">
         </a>
-        <div class="movie-list-item-card">
-          <div class="movie-list-item-content">
-            <h3 class="movie-list-item-title">
+        <div class="recipe-list-item-card">
+          <div class="recipe-list-item-content">
+            <h3 class="recipe-list-item-title">
               <!-- Link do strony pojedynczego filmu typu /film/5 -->
               <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Przepisy</a>
             </h3>
           </div>
-          <div class="movie-list-item-rating">
+          <div class="recipe-list-item-rating">
             <i class="fas fa-star"></i>
             <span>8.7</span>
           </div>
