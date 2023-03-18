@@ -1,9 +1,11 @@
 package pl.foodRecipe.web;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.server.ResponseStatusException;
 import pl.foodRecipe.recipe.RecipeService;
 import pl.foodRecipe.recipe.dto.RecipeDto;
 
@@ -19,9 +21,10 @@ public class RecipeController {
 
 
     @GetMapping("/przepis/{id}")
-    public String getRecipe(@PathVariable long id, Model model) {
-        Optional<RecipeDto> optionalRecipe = recipeService.findRecipeById(id);
-        optionalRecipe.ifPresent(recipe -> model.addAttribute("recipe", recipe));
+    public String getMovie(@PathVariable long id, Model model) {
+        RecipeDto recipe = recipeService.findRecipeById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        model.addAttribute("movie", recipe);
         return "recipe";
     }
 
