@@ -202,7 +202,7 @@ i powinna zajmować większość dostępnej przestrzeni
     }
     /*Styl dla przycisków z ocenami*/
     .recipe-rating-button {
-        background-color: #ffc107;
+        background-color: lightgreen;
         border: 0;
         padding: 4px;
         font-size: 1.6rem;
@@ -276,5 +276,39 @@ i powinna zajmować większość dostępnej przestrzeni
         border: 1px #070606 solid;
         padding: 16px;
         text-align: center;
+    }
+
+    /*textarea domyślnie nie dziedziczy czcionki z body*/
+    textarea {
+        font-family: inherit;
+    }
+    /*etykiety i inputy jeden pod drugim z odstępami po bokach*/
+    .mc-form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 32px;
+    }
+    /*odstępy między etykietami i inputami*/
+    .mc-form > * {
+        margin-top: 8px;
+    }
+    /*większe inputy z paddingami*/
+    .mc-form > input,
+    .mc-form > textarea,
+    .mc-form > button {
+        font-size: 1.2rem;
+        color: black;
+        padding: 8px;
+    }
+    .mc-form > button {
+        margin-top: 16px;
+        background-color: white;
+        color: lightgreen;
+        border: none;
+    }
+    .notification-bar {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 8px 0;
     }
 }

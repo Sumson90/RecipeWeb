@@ -3,6 +3,7 @@ package pl.foodRecipe.category;
 import org.springframework.stereotype.Service;
 import pl.foodRecipe.category.dto.CategoryDto;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
@@ -25,4 +26,13 @@ public class CategoryService {
                 .map(CategoryDtoMapper::map)
                 .toList();
     }
+
+    @Transactional
+    public void addCategory(CategoryDto category) {
+        Category categoryToSave = new Category();
+        categoryToSave.setName(category.getName());
+        categoryToSave.setDescription(category.getDescription());
+        categoryRepository.save(categoryToSave);
+    }
 }
+
