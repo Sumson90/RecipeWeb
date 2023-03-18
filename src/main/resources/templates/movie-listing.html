@@ -1,109 +1,47 @@
 <!DOCTYPE html>
 <!-- Dodana przestrzeń nazw th -->
-<html lang="pl" xmlns:th="https://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Przepisy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-  <!-- Dynamicznie budowany adres do skryptu JS i arkusza stylów -->
-  <script defer src="../static/scripts/common.js" th:src="@{/scripts/common.js}"></script>
-  <link rel="stylesheet" href="../static/styles/main.css" th:href="@{/styles/main.css}">
-</head>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <body>
 <div class="container">
-  <ul class="menu">
-    <li class="menu-logo-container">
-      <!-- Dynamicznie budowany adres do strony głównej -->
-      <a href="#" th:href="@{/}">
-        <i class="fas fa-utensils logo"></i> Przepisy
-      </a>
-    </li>
-    <li class="menu-toggle">
-      <a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Gatunki</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Top10</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Zaloguj się</a>
-    </li>
-  </ul>
-  <header class="jumbotron">
-    <h1 class="jumbotron-header">Przepisy</h1>
-    <p class="jumbotron-description">
-      Witaj w najlepszej bazie przepisow w sieci. Oceniaj i dyskutuj o najnowszych przepisach.
-    </p>
-  </header>
-  <main class="main-content">
-    <!-- Nagłówek pobieramy z modelu -->
-    <h2 class="list-heading" th:text="${heading}">Promowane przepisy / Nazwa Kategorii</h2>
-    <!-- Opis pobieramy z modelu -->
-    <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kategorii, albo strony głównej</p>
-    <!-- Zostawiamy tylko pierwszy element <li> -->
-    <ul class="recipe-list" th:remove="all-but-first">
-      <!-- Pętla po wszystkich filmach z modelu -->
-      <li class="recipe-list-item" th:each="recipe: ${recipes}">
-        <!-- Link do strony pojedynczego filmu typu /film/5 -->
-        <a href="#" th:href="@{|/przepis/${recipe.id}|}">
-          <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
-          <img src="../static/img/poster-placeholder.png"
-               th:src="@{/img/poster-placeholder.png}"
-               alt="tytuł filmu"
-               class="recipe-list-item-poster">
-        </a>
-        <div class="recipe-list-item-card">
-          <div class="recipe-list-item-content">
-            <h3 class="recipe-list-item-title">
-              <!-- Link do strony pojedynczego filmu typu /film/5 -->
-              <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Przepisy</a>
-            </h3>
-          </div>
-          <div class="recipe-list-item-rating">
-            <i class="fas fa-star"></i>
-            <span>8.7</span>
-          </div>
-        </div>
-      </li>
-
-      <li class="recipe-list-item" th:each="recipe: ${recipes}">
-        <!-- Link do strony pojedynczego filmu typu /film/5 -->
-        <a href="#" th:href="@{|/przepis/${recipe.id}|}">
-          <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
-          <img src="../static/img/poster-placeholder.png"
-               th:src="@{/img/poster-placeholder.png}"
-               alt="tytuł filmu"
-               class="recipe-list-item-poster">
-        </a>
-        <div class="recipe-list-item-card">
-          <div class="recipe-list-item-content">
-            <h3 class="recipe-list-item-title">
-              <!-- Link do strony pojedynczego filmu typu /film/5 -->
-              <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Przepisy</a>
-            </h3>
-          </div>
-          <div class="recipe-list-item-rating">
-            <i class="fas fa-star"></i>
-            <span>8.7</span>
-          </div>
-        </div>
-      </li>
-
-
-    </ul>
-  </main>
-  <footer class="footer">
-    <p>MovieClub 2022 <i class="fas fa-copyright"></i> JavaStart.pl</p>
-  </footer>
+    <main class="main-content" layout:fragment="content">
+        <!-- Nagłówek pobieramy z modelu -->
+        <h2 class="list-heading" th:text="${heading}">Promowane przepisy / Nazwa Kategorii</h2>
+        <!-- Opis pobieramy z modelu -->
+        <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kategorii, albo strony
+            głównej</p>
+        <!-- Zostawiamy tylko pierwszy element <li> -->
+        <ul class="recipe-list" th:remove="all-but-first">
+            <!-- Pętla po wszystkich filmach z modelu -->
+            <li class="recipe-list-item" th:each="recipe: ${recipes}">
+                <!-- Link do strony pojedynczego pzepisu typu /film/5 -->
+                <a href="#" th:href="@{|/film/${recipe.id}|}">
+                    <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
+                    <img src="../static/img/poster-placeholder.png"
+                         th:src="@{/img/poster-placeholder.png}"
+                         alt="tytuł przepisu"
+                         class="recipe-list-item-poster">
+                </a>
+                <div class="recipe-list-item-card">
+                    <div class="recipe-list-item-content">
+                        <h3 class="recipe-list-item-title">
+                            <!-- Link do strony pojedynczego filmu typu /film/5 -->
+                            <a href="#" th:href="@{|/film/${recipe.id}|}" th:text="${recipe.title}">Tytuł filmu</a>
+                        </h3>
+                        <!-- Tytuł filmu -->
+                        <h4 th:text="${recipe.originalTitle}">Angielski tytuł filmu</h4>
+                        <!-- Rok premiery filmu -->
+                        <p th:text="${recipe.releaseYear}">1999</p>
+                    </div>
+                    <div class="recipe-list-item-rating">
+                        <i class="fas fa-star"></i>
+                        <span>8.7</span>
+                    </div>
+                </div>
+        </ul>
+    </main>
 </div>
 </body>
 </html>

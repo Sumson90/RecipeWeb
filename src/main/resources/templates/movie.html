@@ -1,61 +1,28 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-  <meta charset="UTF-8">
   <title>Tytuł filmu - Przepisy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-  <script defer src="../static/scripts/common.js"></script>
-  <link rel="stylesheet" href="../static/styles/main.css">
 </head>
 <body>
 <div class="container">
-  <ul class="menu">
-    <li class="menu-logo-container">
-      <a href="#" th:href="@{/}">
-        <i class="fas fa-utensils logo"></i> Przepisy
-      </a>
-    </li>
-    <li class="menu-toggle">
-      <a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Gatunki</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Top10</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Zaloguj się</a>
-    </li>
-  </ul>
-  <header class="jumbotron">
-    <h1 class="jumbotron-header">Przepisy</h1>
-    <p class="jumbotron-description">
-      Witaj w najlepszej bazie przepisow w sieci. Oceniaj i dyskutuj o najnowszych przepisach.
-    </p>
-  </header>
-  <main class="main-content">
+  <main class="main-content" layout:fragment="content">
     <section class="recipe">
       <!-- Podsumowanie -->
       <div class="recipe-summary">
         <!-- Plakat -->
         <img src="../static/img/poster-placeholder.png"
-             alt="tytuł filmu"
+             alt="tytuł przepisu"
              class="recipe-summary-cover"
         />
         <!-- informacje o filmie -->
         <div class="recipe-summary-info">
-          <h1 class="recipe-summary-title">Padthai z kurczakiem</h1>
-          <p class="recipe-summary-item">Gatunek: <a href="#">Asian</a> </p>
-          <p class="recipe-summary-item" >
-            Mega smaczny phadthai z kurczakiem.
+          <h1 class="recipe-summary-title">Władca pierścieni</h1>
+          <p class="recipe-summary-item">Gatunek: <a href="#">Asian</a></p>
+          <p class="recipe-summary-item">
+            Kurak w sosie smietanowym
           </p>
         </div>
       </div>
@@ -83,9 +50,9 @@
     </section>
     <!-- trailer -->
     <section class="recipe-trailer-container recipe-section">
-      <h2 class="recipe-section-heading">Polska</h2>
+      <h2 class="recipe-section-heading">Trailer</h2>
       <iframe width="560" height="315" class="recipe-trailer"
-              src="https://www.youtube.com/embed/QnNP5iDxoJ4"
+              src="https://www.youtube.com/embed/V75dMMIW2B4"
               frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </section>
     <!-- opis -->
@@ -96,13 +63,7 @@
         tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in
         faucibus.</p>
     </section>
-
-
   </main>
-
-  <footer class="footer">
-    <p>Przepisy <i class="fas fa-copyright"></i> Tomasz Sumkowski</p>
-  </footer>
 </div>
 </body>
 </html>
