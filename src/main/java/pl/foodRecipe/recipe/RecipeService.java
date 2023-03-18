@@ -24,5 +24,13 @@ public class RecipeService {
     public Optional<RecipeDto> findRecipeById(long id) {
         return recipeRepository.findById(id).map(RecipeDtoMapper::map);
     }
+
+    public List<RecipeDto> findRecipesByCategoryName(String category) {
+        return recipeRepository.findAllByCategory_NameIgnoreCase(category).stream()
+                .map(RecipeDtoMapper::map)
+                .toList();
+    }
+
+
 }
 

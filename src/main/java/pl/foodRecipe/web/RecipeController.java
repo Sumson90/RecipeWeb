@@ -24,7 +24,7 @@ public class RecipeController {
     public String getMovie(@PathVariable long id, Model model) {
         RecipeDto recipe = recipeService.findRecipeById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        model.addAttribute("movie", recipe);
+        model.addAttribute("recipe", recipe);
         return "recipe";
     }
 
