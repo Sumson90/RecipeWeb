@@ -266,4 +266,15 @@ i powinna zajmować większość dostępnej przestrzeni
         margin: 16px 0;
     }
     /*error pages END*/
+
+    .list-border {
+        margin: auto;
+        list-style: none;
+    }
+    .list-border > li {
+        font-size: 1.2rem;
+        border: 1px #070606 solid;
+        padding: 16px;
+        text-align: center;
+    }
 }

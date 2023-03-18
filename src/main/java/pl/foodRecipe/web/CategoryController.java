@@ -34,4 +34,10 @@ public class CategoryController {
         model.addAttribute("recipes", recipes);
         return "recipe-listing";
     }
+    @GetMapping("/kategorie-przepisow")
+    public String getCategoriesList(Model model) {
+        List<CategoryDto> categories = categoryService.findAllCategories();
+        model.addAttribute("categories", categories);
+        return "categories-listing";
+    }
 }
