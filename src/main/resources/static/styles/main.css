@@ -333,4 +333,9 @@ i powinna zajmować większość dostępnej przestrzeni
         color: lightgreen;
         text-align: center;
     }
+
+    .registration-link {
+        text-align: center;
+        margin-top: 32px;
+    }
 }
