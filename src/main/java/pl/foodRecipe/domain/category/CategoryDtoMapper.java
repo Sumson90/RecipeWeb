@@ -1,6 +1,6 @@
-package pl.foodRecipe.category;
+package pl.foodRecipe.domain.category;
 
-import pl.foodRecipe.category.dto.CategoryDto;
+import pl.foodRecipe.domain.category.dto.CategoryDto;
 
 public class CategoryDtoMapper {
     static CategoryDto map(Category category){

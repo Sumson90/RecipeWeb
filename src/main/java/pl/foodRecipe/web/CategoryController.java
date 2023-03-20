@@ -7,10 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
-import pl.foodRecipe.category.CategoryService;
-import pl.foodRecipe.category.dto.CategoryDto;
-import pl.foodRecipe.recipe.RecipeService;
-import pl.foodRecipe.recipe.dto.RecipeDto;
+import pl.foodRecipe.domain.category.CategoryService;
+import pl.foodRecipe.domain.category.dto.CategoryDto;
+import pl.foodRecipe.domain.recipe.RecipeService;
+import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 import java.util.List;
 

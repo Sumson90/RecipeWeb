@@ -5,8 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pl.foodRecipe.category.CategoryService;
-import pl.foodRecipe.category.dto.CategoryDto;
+import pl.foodRecipe.domain.category.CategoryService;
+import pl.foodRecipe.domain.category.dto.CategoryDto;
 
 @Controller
 public class CategoryManagementController {
@@ -18,7 +18,7 @@ public class CategoryManagementController {
 
 
     @GetMapping("/admin/dodaj-kategorie")
-    public String addGenreForm(Model model) {
+    public String addCategoryForm(Model model) {
         CategoryDto category = new CategoryDto();
         model.addAttribute("category", category);
         return "admin/category-form";

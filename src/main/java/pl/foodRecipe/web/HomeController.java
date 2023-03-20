@@ -3,8 +3,8 @@ package pl.foodRecipe.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import pl.foodRecipe.recipe.RecipeService;
-import pl.foodRecipe.recipe.dto.RecipeDto;
+import pl.foodRecipe.domain.recipe.RecipeService;
+import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 import java.util.List;
 

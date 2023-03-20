@@ -15,16 +15,16 @@
       <div class="recipe-summary">
         <!-- Ustawiamy adres i opis plakatu -->
         <img src="../static/img/poster-placeholder.png"
-             th:src="@{/img/poster-placeholder.png}"
-             alt="tytuł przepisu"
+             th:src="${recipe.poster ne null} ? @{|/img/${recipe.poster}|} : @{/img/poster-placeholder.png}"
+             alt="tytuł filmu"
              th:alt="${recipe.title}"
-             class="recipe-summary-cover"
+             class="movie-summary-cover"
         />
-        <!-- informacje o filmie -->
+        <!-- informacje o przepisie -->
         <div class="recipe-summary-info">
-          <!-- Ustawiamy tytuły, krótki opis, rok -->
-          <h1 class="recipe-summary-title" th:text="${recipe.title}">Władca pierścieni</h1>
-          <!-- Ustawiamy link do strony gatunku filmowego, np. /gatunek/fantasy -->
+          <!-- Ustawiamy tytuły, krótki opis -->
+          <h1 class="recipe-summary-title" th:text="${recipe.title}">Kurczak w sosie smietanowym</h1>
+          <!-- Ustawiamy link do strony gatunku  -->
           <p class="recipe-summary-item">Gatunek: <a href="#"
                                                     th:href="@{|/gatunek/${recipe.category}|}"
                                                     th:text="${recipe.category}">Fantasy</a>
@@ -42,7 +42,7 @@
           <p style="text-align: center">Liczba ocen: 134</p>
         </div>
         <form action="#" class="recipe-rating-form">
-          <!-- Identyfikator filmu, na który głosujemy-->
+          <!-- Identyfikator przepisu, na który głosujemy-->
           <p>Twoja ocena</p>
           <input type="hidden" name="recipeId">
           <div class="recipe-rating-buttons">
@@ -56,22 +56,24 @@
         <p><a href="#">Zaloguj się</a>, aby oddać głos</p>
       </div>
     </section>
-    <!-- trailer -->
-    <section class="recipe-trailer-container recipe-section">
-      <h2 class="recipe-section-heading">Trailer</h2>
-      <!-- Ustawiamy url filmu z trailerem -->
-      <iframe width="560" height="315" class="recipe-trailer"
-              src="https://www.youtube.com/embed/V75dMMIW2B4"
-              th:src="|https://www.youtube.com/embed/${recipe.youtubeTrailerId}|"
-              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </section>
+
     <!-- opis -->
     <section class="recipe-section">
-      <h2 class="recipe-section-heading">Opis</h2>
+      <h2 class="recipe-section-heading">Przepis</h2>
       <!-- Ustawiamy pełny opis -->
       <p th:text="${recipe.description}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
         Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
         Donec lacinia congue felis in faucibus.</p>
+    </section>
+
+    <!-- trailer -->
+    <section class="recipe-trailer-container recipe-section">
+      <h2 class="recipe-section-heading">Instrukacja</h2>
+      <!-- Ustawiamy url filmu z przepisem -->
+      <iframe width="560" height="315" class="recipe-trailer"
+              src="https://www.youtube.com/embed/V75dMMIW2B4"
+              th:src="|https://www.youtube.com/embed/${recipe.youtubeTrailerId}|"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </section>
   </main>
 </div>

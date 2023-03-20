@@ -6,10 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
-import pl.foodRecipe.recipe.RecipeService;
-import pl.foodRecipe.recipe.dto.RecipeDto;
-
-import java.util.Optional;
+import pl.foodRecipe.domain.recipe.RecipeService;
+import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 @Controller
 public class RecipeController {

@@ -1,6 +1,6 @@
-package pl.foodRecipe.recipe;
+package pl.foodRecipe.domain.recipe;
 
-import pl.foodRecipe.category.Category;
+import pl.foodRecipe.domain.category.Category;
 
 import javax.persistence.*;
 
@@ -26,6 +26,7 @@ public class Recipe {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
     private boolean promoted;
+    private String poster;
 
 
 }

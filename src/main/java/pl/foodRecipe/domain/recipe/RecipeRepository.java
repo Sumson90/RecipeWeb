@@ -1,4 +1,4 @@
-package pl.foodRecipe.recipe;
+package pl.foodRecipe.domain.recipe;
 
 import org.springframework.data.repository.CrudRepository;
 

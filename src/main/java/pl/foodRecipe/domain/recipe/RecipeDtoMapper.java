@@ -1,6 +1,6 @@
-package pl.foodRecipe.recipe;
+package pl.foodRecipe.domain.recipe;
 
-import pl.foodRecipe.recipe.dto.RecipeDto;
+import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 public class RecipeDtoMapper {
     static RecipeDto map(Recipe recipe){
@@ -11,7 +11,8 @@ public class RecipeDtoMapper {
                 recipe.getDescription(),
                 recipe.getYoutubeTrailerId(),
                 recipe.getCategory().getName(),
-                recipe.isPromoted()
+                recipe.isPromoted(),
+                recipe.getPoster()
         );
     }
 }

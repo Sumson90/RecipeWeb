@@ -1,4 +1,4 @@
-package pl.foodRecipe.category.dto;
+package pl.foodRecipe.domain.category.dto;
 
 import lombok.*;
 

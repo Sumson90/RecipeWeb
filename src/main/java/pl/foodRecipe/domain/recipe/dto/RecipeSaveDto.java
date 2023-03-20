@@ -1,14 +1,14 @@
-package pl.foodRecipe.recipe.dto;
-
+package pl.foodRecipe.domain.recipe.dto;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+public class RecipeSaveDto {
 
-
-public class RecipeDto {
     private Long id;
     private String title;
     private String shortDescription;
@@ -17,6 +17,5 @@ public class RecipeDto {
 
     private String category;
     private boolean promoted;
-
-
+    private MultipartFile poster;
 }
