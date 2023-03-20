@@ -2,6 +2,7 @@
 <html lang="pl"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout}">
 <head>
   <!-- Ustawiamy tytuł -->
@@ -18,15 +19,15 @@
              th:src="${recipe.poster ne null} ? @{|/img/${recipe.poster}|} : @{/img/poster-placeholder.png}"
              alt="tytuł filmu"
              th:alt="${recipe.title}"
-             class="movie-summary-cover"
+             class="recipe-summary-cover"
         />
         <!-- informacje o przepisie -->
         <div class="recipe-summary-info">
           <!-- Ustawiamy tytuły, krótki opis -->
           <h1 class="recipe-summary-title" th:text="${recipe.title}">Kurczak w sosie smietanowym</h1>
           <!-- Ustawiamy link do strony gatunku  -->
-          <p class="recipe-summary-item">Gatunek: <a href="#"
-                                                    th:href="@{|/gatunek/${recipe.category}|}"
+          <p class="recipe-summary-item">Kategoria: <a href="#"
+                                                    th:href="@{|/kategoria/${recipe.category}|}"
                                                     th:text="${recipe.category}">Fantasy</a>
           </p>
           <p class="recipe-summary-item" th:text="${recipe.shortDescription}">
@@ -37,23 +38,36 @@
       <!-- Ocena -->
       <div class="recipe-rating-container recipe-section">
         <h2 class="recipe-section-heading">Ocena</h2>
-        <div>
-          <p class="recipe-rating-value" th:text="${avgRating}">4.0</p>
-          <p style="text-align: center">Liczba ocen: 134</p>
+        <!-- Jeżeli nie oddano żadnego głosu -->
+        <p th:unless="${recipe.ratingCount}">Brak głosów</p>
+        <!-- Jeżeli oddano głos -->
+        <div th:if="${recipe.ratingCount}">
+          <!-- Zaokrąglamy ocenę do 1 miejsca przed i po przecinku -->
+          <p class="recipe-rating-value" th:text="${#numbers.formatDecimal(recipe.avgRating, 1, 1)}">4.0</p>
+          <p th:text="|Liczba ocen: ${recipe.ratingCount}|">Liczba ocen: 134</p>
         </div>
-        <form action="#" class="recipe-rating-form">
-          <!-- Identyfikator przepisu, na który głosujemy-->
+        <!-- Dodajemy th:action, formularz wyświetlamy tylko zalogowanemu użytkownikowi -->
+        <form action="#" th:action="@{/ocen-przepis}" method="post"
+              sec:authorize="isAuthenticated()"
+              class="recipe-rating-form">
+          <!-- Identyfikator filmu, na który głosujemy-->
           <p>Twoja ocena</p>
-          <input type="hidden" name="recipeId">
+          <input type="hidden" name="recipeId" th:value="${recipe.id}">
           <div class="recipe-rating-buttons">
-            <button class="recipe-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="recipe-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="recipe-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="recipe-rating-button"><i class="fa-solid fa-star"></i></button>
-            <button class="recipe-rating-button"><i class="fa-regular fa-star"></i></button>
+            <!-- Generujemy 5 gwiazdek w pętli -->
+            <button class="recipe-rating-button"
+                    name="rating"
+                    th:each="i: ${#numbers.sequence(1, 5)}"
+                    th:value="${i}">
+              <!-- Pełną i pustą gwiazdkę rozróżniamy dodając odpowiednią klasę na podstawie głosu użytkownika -->
+              <i class="fa-star" th:classappend="${i <= userRating ? 'fa-solid' : 'fa-regular'}"></i>
+            </button>
           </div>
         </form>
-        <p><a href="#">Zaloguj się</a>, aby oddać głos</p>
+        <!-- Link do logowania wyświetlamy tylko wtedy, gdy użytkownik nie jest zalogowany -->
+        <p sec:authorize="!isAuthenticated()">
+          <a href="#" th:href="@{/login}">Zaloguj się</a>, aby oddać głos
+        </p>
       </div>
     </section>
 

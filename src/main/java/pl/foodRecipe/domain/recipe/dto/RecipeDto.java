@@ -18,6 +18,8 @@ public class RecipeDto {
     private String category;
     private boolean promoted;
     private String poster;
+    private double avgRating;
+    private int ratingCount;
 
 
 }

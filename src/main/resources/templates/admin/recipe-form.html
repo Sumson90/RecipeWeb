@@ -12,10 +12,10 @@
     <form action="#" th:action="@{/admin/dodaj-przepis}" method="post" enctype="multipart/form-data" class="mc-form" th:object="${recipe}">
         <label for="title">Tytuł</label>
         <input type="text" id="title" placeholder="Przykładowy tytuł" th:field="*{title}">
-        <label for="genre">Kategoria</label>
-        <select id="genre" th:field="*{category}" required>
+        <label for="category">Kategoria</label>
+        <select id="category" th:field="*{category}" required>
             <option value="" hidden>Wybierz kategorie</option>
-            <option th:each="genre: ${genres}" th:value="${genre.name}" th:text="${genre.name}"></option>
+            <option th:each="category: ${categories}" th:value="${category.name}" th:text="${category.name}"></option>
         </select>
         <label for="promoted">Promowanie na stronie głównej?</label>
         <input id="promoted" type="checkbox" th:field="*{promoted}">

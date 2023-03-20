@@ -25,7 +25,7 @@ public class CategoryController {
     }
 
     @GetMapping("/kategoria/{name}")
-    public String getGenre(@PathVariable String name, Model model) {
+    public String getCategory(@PathVariable String name, Model model) {
         CategoryDto category = categoryService.findCategoryByName(name)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         List<RecipeDto> recipes = recipeService.findRecipesByCategoryName(name);

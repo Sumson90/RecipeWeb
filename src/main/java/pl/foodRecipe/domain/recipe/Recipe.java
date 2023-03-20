@@ -5,6 +5,10 @@ import pl.foodRecipe.domain.category.Category;
 import javax.persistence.*;
 
 import lombok.*;
+import pl.foodRecipe.domain.rating.Rating;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,6 +29,8 @@ public class Recipe {
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
+    @OneToMany(mappedBy = "recipe")
+    private Set<Rating> ratings = new HashSet<>();
     private boolean promoted;
     private String poster;
 
