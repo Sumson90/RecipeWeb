@@ -9,7 +9,7 @@
 <body>
 <main class="main-content" layout:fragment="content">
   <h2 class="list-heading">Dodaj nowa kategorie przepisow</h2>
-  <form action="" method="post" class="mc-form" th:object="${category}">
+  <form action="#" th:action="@{/admin/dodaj-kategorie}" method="post" class="mc-form" th:object="${category}">
     <label for="categoryName">Nazwa</label>
     <input type="text" id="categoryName" placeholder="np. włoska" th:field="*{name}">
     <label for="recipeShortDescription">Opis - max 500 znaków</label>
