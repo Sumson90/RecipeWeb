@@ -328,4 +328,9 @@ i powinna zajmować większość dostępnej przestrzeni
     .mc-form > input[type=file] {
         color: #070606;
     }
+    /*Tekst nad formularzem*/
+    .mc-form-message {
+        color: lightgreen;
+        text-align: center;
+    }
 }
