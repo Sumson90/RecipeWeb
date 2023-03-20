@@ -1,6 +1,5 @@
-package pl.foodRecipe.domain.recipe.dto;
+package pl.foodRecipe.domain.recipe;
 
-import pl.foodRecipe.domain.recipe.Recipe;
 import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 public class RecipeDtoMapper {
