@@ -2,6 +2,7 @@ package pl.foodRecipe.domain.category;
 
 import org.springframework.stereotype.Service;
 import pl.foodRecipe.domain.category.dto.CategoryDto;
+import pl.foodRecipe.domain.category.dto.CategoryDtoMapper;
 
 import javax.transaction.Transactional;
 import java.util.List;
