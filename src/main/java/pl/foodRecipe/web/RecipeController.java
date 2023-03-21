@@ -11,6 +11,8 @@ import pl.foodRecipe.domain.rating.RatingService;
 import pl.foodRecipe.domain.recipe.RecipeService;
 import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
+import java.util.List;
+
 @Controller
 public class RecipeController {
     private final RecipeService recipeService;
@@ -34,6 +36,14 @@ public class RecipeController {
 
 
         return "recipe";
+    }
+    @GetMapping("/top10")
+    public String findTop10(Model model) {
+        List<RecipeDto> top10Recipes = recipeService.findTopRecipes(10);
+        model.addAttribute("heading", "Przepisy TOP10");
+        model.addAttribute("description", "Przepisy najlepiej oceniane przez użytkowników");
+        model.addAttribute("recipes", top10Recipes);
+        return "recipe-listing";
     }
 
 }

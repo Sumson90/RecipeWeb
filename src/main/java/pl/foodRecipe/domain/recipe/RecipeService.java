@@ -1,5 +1,6 @@
 package pl.foodRecipe.domain.recipe;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.foodRecipe.domain.category.Category;
 import pl.foodRecipe.domain.category.CategoryRepository;
@@ -56,6 +57,12 @@ public class RecipeService {
             recipe.setPoster(savedFileName);
         }
         recipeRepository.save(recipe);
+    }
+    public List<RecipeDto> findTopRecipes(int size) {
+        Pageable page = Pageable.ofSize(size);
+        return recipeRepository.findTopByRating(page).stream()
+                .map(RecipeDtoMapper::map)
+                .toList();
     }
 
 
