@@ -5,8 +5,8 @@ import pl.foodRecipe.domain.user.dto.UserCredentialsDto;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-class UserCredentialsDtoMapper {
-    static UserCredentialsDto map(User user) {
+public class UserCredentialsDtoMapper {
+    public static UserCredentialsDto map(User user) {
         String email = user.getEmail();
         String password = user.getPassword();
         Set<String> roles = user.getRoles()

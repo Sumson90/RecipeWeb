@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @ToString
 
-
+@EqualsAndHashCode
 public class RecipeDto {
     private Long id;
     private String title;

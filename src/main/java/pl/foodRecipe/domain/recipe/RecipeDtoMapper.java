@@ -3,7 +3,7 @@ package pl.foodRecipe.domain.recipe;
 import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 import pl.foodRecipe.domain.rating.Rating;
 public class RecipeDtoMapper {
-    static RecipeDto map(Recipe recipe) {
+    public static RecipeDto map(Recipe recipe) {
         double avgRating = recipe.getRatings().stream()
                 .map(Rating::getRating)
                 .mapToDouble(val -> val)
