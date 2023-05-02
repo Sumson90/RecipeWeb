@@ -12,5 +12,5 @@ RUN mkdir -p ./uploads
 RUN mkdir -p ./uploads/img
 RUN mkdir -p ./uploads/files
 COPY --from=MAVEN_BUILD /target/MyFavoriteRecipe-0.0.1-SNAPSHOT.jar /app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java", "-Dserver.address=89.117.37.212", "-jar", "/app.jar"]
 
