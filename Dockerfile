@@ -7,7 +7,7 @@ RUN mvn package
 
 FROM openjdk:17-jdk-slim-buster
 EXPOSE 8080
-COPY target/MyFavoriteRecipe-*.jar /app.jar
+COPY target/MyFavoriteRecipe-0.0.1-SNAPSHOT.jar /app.jar
 ENV APP_STORAGE_LOCATION=./uploads/
 RUN mkdir -p ./uploads
 RUN mkdir -p ./uploads/img
