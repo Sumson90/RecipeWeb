@@ -12,6 +12,6 @@ ENV APP_STORAGE_LOCATION=./uploads/
 RUN mkdir -p ./uploads
 RUN mkdir -p ./uploads/img
 RUN mkdir -p ./uploads/files
-COPY --from=MAVEN_BUILD /target/rest-offers-*.jar /app.jar
+COPY --from=MAVEN_BUILD /target/MyFavoriteRecipe-0.0.1-SNAPSHOT.jar /app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
