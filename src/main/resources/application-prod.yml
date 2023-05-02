@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://89.117.37.212:3306/przepisy
+    url: jdbc:mysql://mysql/przepisy
     username: root
     password: tajnehaslo
   liquibase:
