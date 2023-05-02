@@ -4,7 +4,7 @@ spring:
     hibernate:
       ddl-auto: validate
   profiles:
-    default: dev
+    default: prod
   liquibase:
     change-log: classpath:db/changelog/master.xml
   sql:
